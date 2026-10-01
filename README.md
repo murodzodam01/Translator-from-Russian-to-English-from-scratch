@@ -1,4 +1,4 @@
-# Russian-to-English Neural Machine Translation from Scratch
+﻿# Russian-to-English Neural Machine Translation from Scratch
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-Seq2Seq-EE4C2C?logo=pytorch&logoColor=white)
@@ -11,7 +11,7 @@ This project builds a **Russian-to-English neural machine translation system fro
 
 Two architectures are compared:
 
-1. A baseline GRU encoder–decoder that compresses the source sentence into a fixed-size representation.
+1. A baseline GRU encoderвЂ“decoder that compresses the source sentence into a fixed-size representation.
 2. An attention-enhanced GRU model that dynamically focuses on relevant source positions during decoding.
 
 The attention model improves development BLEU from **17.33** to **24.95**, an absolute gain of **7.62 points**.
@@ -29,7 +29,7 @@ Machine translation brings together several foundational NLP challenges:
 - retaining information from long source sentences;
 - evaluating generated text objectively.
 
-This project emphasizes implementation transparency. Rather than relying on a pretrained translation pipeline, it constructs the model components directly to show how information moves through an encoder–decoder system and how attention reduces the fixed-context bottleneck.
+This project emphasizes implementation transparency. Rather than relying on a pretrained translation pipeline, it constructs the model components directly to show how information moves through an encoderвЂ“decoder system and how attention reduces the fixed-context bottleneck.
 
 ## Dataset
 
@@ -66,7 +66,7 @@ The project uses a custom `Vocab` class to map subword tokens to integer indices
 
 ## Model architectures
 
-### Baseline GRU encoder–decoder
+### Baseline GRU encoderвЂ“decoder
 
 The baseline model contains:
 
@@ -79,7 +79,7 @@ The baseline model contains:
 
 During training, teacher forcing supplies reference target tokens to the decoder. During inference, generation starts with the BOS token and repeatedly selects the most probable next token.
 
-### Encoder–decoder with additive attention
+### EncoderвЂ“decoder with additive attention
 
 The second model retains the complete encoder-state sequence. At every decoding step, additive attention calculates an alignment score for each source position:
 
@@ -116,8 +116,8 @@ The sequence mask includes the first EOS token but excludes later padding positi
 
 | Model | Development BLEU | Improvement |
 | --- | ---: | ---: |
-| Baseline GRU encoder–decoder | 17.33 | — |
-| GRU encoder–decoder with attention | **24.95** | **+7.62** |
+| Baseline GRU encoderвЂ“decoder | 17.33 | вЂ” |
+| GRU encoderвЂ“decoder with attention | **24.95** | **+7.62** |
 
 The attention model produces a substantial improvement even though it is trained for fewer iterations. Qualitative examples show better handling of sentence structure, amenities, and common hotel-description phrases.
 
@@ -136,7 +136,7 @@ These patterns are consistent with the limitations of compact recurrent translat
 **Russian input**
 
 ```text
-кроме того, предоставляется прокат велосипедов, услуги трансфера и бесплатная парковка.
+РєСЂРѕРјРµ С‚РѕРіРѕ, РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РїСЂРѕРєР°С‚ РІРµР»РѕСЃРёРїРµРґРѕРІ, СѓСЃР»СѓРіРё С‚СЂР°РЅСЃС„РµСЂР° Рё Р±РµСЃРїР»Р°С‚РЅР°СЏ РїР°СЂРєРѕРІРєР°.
 ```
 
 **Attention-model translation**
@@ -149,15 +149,15 @@ the property also offers bike hire, shuttle service and free parking.
 
 ```text
 .
-├── README.md
-├── Russian_English_Neural_Machine_Translation.ipynb
-├── vocab.py
-└── data.txt
+в”њв”Ђв”Ђ README.md
+в”њв”Ђв”Ђ Russian_English_Neural_Machine_Translation.ipynb
+в”њв”Ђв”Ђ vocab.py
+в””в”Ђв”Ђ data.txt
 ```
 
 - `Russian_English_Neural_Machine_Translation.ipynb` contains the complete experiment.
 - `vocab.py` provides vocabulary encoding, masking, and text reconstruction.
-- `data.txt` contains the tab-separated English–Russian parallel corpus.
+- `data.txt` contains the tab-separated EnglishвЂ“Russian parallel corpus.
 
 ## Installation
 
@@ -204,7 +204,7 @@ from vocab import Vocab
 - scikit-learn
 - Matplotlib
 - Byte Pair Encoding
-- GRU encoder–decoder networks
+- GRU encoderвЂ“decoder networks
 - Additive attention
 - BLEU evaluation
 
@@ -225,3 +225,4 @@ from vocab import Vocab
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 - [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909)
 - [BLEU: a Method for Automatic Evaluation of Machine Translation](https://aclanthology.org/P02-1040/)
+
